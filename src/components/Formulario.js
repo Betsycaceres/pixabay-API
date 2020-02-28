@@ -41,7 +41,7 @@ const Formulario = ({ guardarBusqueda }) => {
 
       <div>
         <p className="text-secondary text-center">
-          Imágenes populares: san valentin, familia, carnaval, niños, amor,
+          Imágenes populares: San valentín, familia, carnaval, niños, amor,
           fondos, personas, marketing, etc.
         </p>
       </div>
