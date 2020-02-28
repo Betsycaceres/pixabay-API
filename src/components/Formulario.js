@@ -1,9 +1,19 @@
 import React, { useState } from "react";
+import Error from "./Error";
 
 const Formulario = () => {
   const [termino, guardarTermino] = useState("");
+  const [error, guardarError] = useState(false);
+
   const buscarImagenes = e => {
     e.preventDefault();
+    // validar
+    if (termino.trim() === "") {
+      guardarError(true);
+      return;
+    }
+
+    // enviar el término de búsqueda
   };
 
   return (
@@ -13,7 +23,7 @@ const Formulario = () => {
           <input
             type="text"
             className="form-control form-control-lg"
-            placeholder="Buscar una imagen, ejempli futbol o café"
+            placeholder="Buscar una imagen, ejemplo futbol o café"
             onChange={e => guardarTermino(e.target.value)}
           ></input>
         </div>
@@ -25,6 +35,7 @@ const Formulario = () => {
           ></input>
         </div>
       </div>
+      {error ? <Error mensaje="Agrega término de búsqueda"></Error> : null}
     </form>
   );
 };
