@@ -5,6 +5,8 @@ import ListadoImagenes from "./components/Listadoimagenes";
 function App() {
   const [busqueda, guardarBusqueda] = useState("");
   const [imagenes, guardarImagenes] = useState([]);
+  const [paginaactual, guardaPaginaActual] = useState(1);
+  const [totalpaginas, guardarTotalPaginas] = useState(1);
 
   useEffect(() => {
     const consultarApi = async () => {
@@ -17,6 +19,12 @@ function App() {
       const respuesta = await fetch(url);
       const resultado = await respuesta.json();
       guardarImagenes(resultado.hits);
+      // calculando el total de las páginas
+
+      const calcularTotalPaginas = Math.ceil(
+        resultado.totalHits / imagenesPorPagina
+      );
+      guardarTotalPaginas(calcularTotalPaginas);
     };
     consultarApi();
   }, [busqueda]);
