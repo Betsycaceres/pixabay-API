@@ -29,13 +29,21 @@ const Formulario = ({ guardarBusqueda }) => {
             onChange={e => guardarTermino(e.target.value)}
           ></input>
         </div>
+
         <div className="form-group col-md-4">
           <input
             type="submit"
-            className="btn btn-lg btn-danger btn-block"
-            placeholder="Buscar una imagen, ejemplo futbol o café"
+            className="btn btn-lg btn-dark btn-block"
+            value="Buscar"
           ></input>
         </div>
+      </div>
+
+      <div>
+        <p className="text-secondary text-center">
+          Imágenes populares: san valentin, familia, carnaval, niños, amor,
+          fondos, personas, marketing, etc.
+        </p>
       </div>
       {error ? <Error mensaje="Agrega término de búsqueda"></Error> : null}
     </form>

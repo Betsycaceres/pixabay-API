@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
+import Navbar from "./components/Navbar";
 import Formulario from "./components/Formulario";
 import ListadoImagenes from "./components/Listadoimagenes";
+import Footer from "./components/Footer";
 
 function App() {
   const [busqueda, guardarBusqueda] = useState("");
   const [imagenes, guardarImagenes] = useState([]);
-  const [paginaactual, guardaPaginaActual] = useState(1);
+  const [paginaactual, guardarPaginaActual] = useState(1);
   const [totalpaginas, guardarTotalPaginas] = useState(1);
 
   useEffect(() => {
     const consultarApi = async () => {
       if (busqueda === "") return;
 
-      const imagenesPorPagina = 30;
+      const imagenesPorPagina = 45;
       const key = "15417249-cef27a0691844408d2b2ac95b";
       const url = `https://pixabay.com/api/?key=${key}&q=${busqueda}&per_page=${imagenesPorPagina}`;
 
@@ -29,22 +31,49 @@ function App() {
     consultarApi();
   }, [busqueda]);
 
+  const paginaAnterior = () => {
+    const nuevaPaginaActual = paginaactual - 1;
+    if (nuevaPaginaActual === 0) return;
+    guardarPaginaActual(nuevaPaginaActual);
+  };
+
+  const paginaSiguiente = () => {
+    const nuevaPaginaActual = paginaactual + 1;
+    if (nuevaPaginaActual > totalpaginas) return;
+
+    guardarPaginaActual(nuevaPaginaActual);
+  };
+
   return (
-    <div className="container">
-      <div className="jumbotrom">
-        <p className="lead text-center">Buscador de imágenes</p>
-        <Formulario guardarBusqueda={guardarBusqueda}></Formulario>
+    <Fragment>
+      <Navbar></Navbar>
+      <div className="container  ">
+        <div className="jumbotrom">
+          <h1 className="font-weight-bold text-center mt-5 mb-4">
+            Buscador de imágenes
+          </h1>
+          <Formulario guardarBusqueda={guardarBusqueda}></Formulario>
+        </div>
+        <div className="row justify-content-center">
+          <ListadoImagenes imagenes={imagenes}></ListadoImagenes>
+          <button
+            type="button"
+            className="bbtn btn-dark mr-1"
+            onClick={paginaAnterior}
+          >
+            &laquo; Anterior
+          </button>
+          <button
+            type="button"
+            className="btn btn-dark"
+            onClick={paginaSiguiente}
+          >
+            Siguiente &raquo;
+          </button>
+        </div>
+        <Footer></Footer>
       </div>
-      <div className="row justify-content-center">
-        <ListadoImagenes imagenes={imagenes}></ListadoImagenes>
-        <button type="button" className="bbtn btn-info mr-1">
-          Anterior &laquo;
-        </button>
-        <button type="button" className="bbtn btn-info ">
-          Siguiente &raquo;
-        </button>
-      </div>
-    </div>
+    </Fragment>
   );
 }
 

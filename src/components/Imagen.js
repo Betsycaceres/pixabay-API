@@ -10,15 +10,15 @@ const Imagen = ({ imagen }) => {
         <img src={previewURL} alt={tags} className="card-img-top"></img>
       </div>
       <div className="card-body">
-        <p className="card-text">{likes} Me gusta</p>
-        <p className="card-text">{views} vistas</p>
+        <p className="card-text text-center">{likes} Me gusta</p>
+        <p className="card-text text-center">{views} vistas</p>
       </div>
       <div className="card-footer">
         <a
           href={largeImageURL}
           target="_blank"
           rel="noopener noreferrer"
-          className="btn btn-primary btn-block"
+          className="btn btn-dark btn-block "
         >
           Ver Imagen
         </a>
