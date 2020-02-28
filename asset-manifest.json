@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/Betsycaceres/pixabay-API.git/static/js/main.640d6906.chunk.js",
+    "main.js.map": "/Betsycaceres/pixabay-API.git/static/js/main.640d6906.chunk.js.map",
+    "runtime-main.js": "/Betsycaceres/pixabay-API.git/static/js/runtime-main.ffeafe28.js",
+    "runtime-main.js.map": "/Betsycaceres/pixabay-API.git/static/js/runtime-main.ffeafe28.js.map",
+    "static/js/2.4a7b7193.chunk.js": "/Betsycaceres/pixabay-API.git/static/js/2.4a7b7193.chunk.js",
+    "static/js/2.4a7b7193.chunk.js.map": "/Betsycaceres/pixabay-API.git/static/js/2.4a7b7193.chunk.js.map",
+    "index.html": "/Betsycaceres/pixabay-API.git/index.html",
+    "precache-manifest.243fbba072700fb74ac4755531bece89.js": "/Betsycaceres/pixabay-API.git/precache-manifest.243fbba072700fb74ac4755531bece89.js",
+    "service-worker.js": "/Betsycaceres/pixabay-API.git/service-worker.js",
+    "static/js/2.4a7b7193.chunk.js.LICENSE.txt": "/Betsycaceres/pixabay-API.git/static/js/2.4a7b7193.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ffeafe28.js",
+    "static/js/2.4a7b7193.chunk.js",
+    "static/js/main.640d6906.chunk.js"
+  ]
+}
